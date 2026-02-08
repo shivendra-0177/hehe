@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Ungrateful Potato ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Floating Hearts */
+    .heart-float {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+    }
+
+    #typing {
+      font-size: 1.3rem;
+      min-height: 40px;
+      margin-bottom: 30px;
+    }
+
+    /* Card */
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Slideshow */
+    .slideshow {
+      margin: 25px 0;
+    }
+
+    .slideshow img {
+      width: 220px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 3px solid rgba(255,255,255,0.6);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      display: none;
+    }
+
+    .slideshow img.active {
+      display: inline-block;
+      animation: zoom 3s ease;
+    }
+
+    @keyframes zoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    /* Button */
+    button {
+      margin-top: 20px;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #ff2f6d;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+      background: #ff0f57;
+      transform: scale(1.08);
+    }
+
+    .love-letter {
+      display: none;
+      margin-top: 25px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      background: rgba(0,0,0,0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Floating Hearts -->
+<script>
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart-float';
+    heart.innerText = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+    heart.style.animationDuration = (6 + Math.random() * 5) + 's';
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 9000);
+  }
+
+  setInterval(createHeart, 500);
+</script>
+
+<div class="container">
+
+  <h1>My Ungrateful Potato ❤️</h1>
+
+  <div id="typing"></div>
+
+  <div class="card">
+
+    <p>To the most beautiful soul in my life,</p>
+    <p>You are my happiness, my peace, and my chaos as well.</p>
+
+    <!-- Slideshow -->
+    <div class="slideshow">
+      <img src="photo1.jpg" class="active">
+      <img src="photo2.jpg">
+      <img src="photo3.jpg">
+    </div>
+
+    <button onclick="showLetter()">Open My Heart 💌</button>
+
+    <div id="letter" class="love-letter">
+      Eshuuu,<br><br>
+      Every moment feels like magic with you , you are so cute and irritating sometimes as well but your innocence overtakes it 
+      ,Baaki u are my valentine i know this and there is no need to ask (Hehe). ❤️<br><br>
+      Aur kbhi kuch maan bhi liya karo please , aur ha last haste raha karo please (Khikhi) 💕
+    </div>
+
+  </div>
+
+  <footer>
+    Made with infinite love by shivi ❤️
+  </footer>
+
+</div>
+
+<!-- Typing Effect -->
+<script>
+  const text = "I loved you yesterday, I love you today, and I will love you forever.";
+  let index = 0;
+  const typingDiv = document.getElementById("typing");
+
+  function typeEffect() {
+    if (index < text.length) {
+      typingDiv.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 80);
+    }
+  }
+
+  typeEffect();
+</script>
+
+<!-- Slideshow Script -->
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slideshow img");
+
+  function showSlides() {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+  }
+
+  setInterval(showSlides, 3000);
+</script>
+
+<!-- Love Letter Button -->
+<script>
+  function showLetter() {
+    const letter = document.getElementById("letter");
+    letter.style.display = "block";
+    letter.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
